@@ -4,3 +4,24 @@
   margin: 4px;
   border-radius: 8px;
 }
+
+.gameBoard {
+  border: solid 2px #ccc;
+
+  padding: 4px;
+  margin: 4px;
+  border-radius: 8px;
+
+  height: 400px;
+  width: 400px;
+}
+.gameBoardInner {
+  position: relative;
+}
+
+.playerHand {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: solid 2px red;
+}
