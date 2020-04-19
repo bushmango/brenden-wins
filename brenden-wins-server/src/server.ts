@@ -3,21 +3,41 @@ const log = (namespace: string, ...msg: any[]) => {
 }
 
 import * as express from 'express'
+import * as cors from 'cors'
 const app = express()
-
+app.use(cors())
 import * as http from 'http'
+
+// var http = require('http').createServer(app)
+import * as socketIo from 'socket.io'
 
 const server = http.createServer(app)
 log('starting server')
 server.listen(3001, () => {
   console.log('listening on *:3001')
-})
-
-// var http = require('http').createServer(app)
-import * as socketIo from 'socket.io'
-const io = socketIo(http)
-io.on('connection', (socket) => {
-  log('a user connected')
+  console.log('starting sockets')
+  const io = socketIo(server, {
+    handlePreflightRequest: (req, res) => {
+      const headers = {
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Allow-Origin': '*', //or the specific origin you want to give access to,
+        'Access-Control-Allow-Credentials': true,
+      }
+      res.writeHead(200, headers)
+      res.end()
+    },
+  })
+  // Allow any origins (skip cors)
+  // see: https://socket.io/docs/server-api/#server-origins-fn
+  io.origins((origin, callback) => {
+    callback(null, true)
+  })
+  io.on('connection', (socket) => {
+    log('a user connected')
+  })
+  io.on('event', (data) => {
+    log('a data event', data)
+  })
 })
 
 let state = {
