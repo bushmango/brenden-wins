@@ -1,5 +1,5 @@
 {
-  "name": "next-bauble",
+  "name": "next-brenden-wins",
   "version": "1.0.0",
   "scripts": {
     "1": "yarn rimraf .next && yarn concurrently \"yarn dev\" \"yarn 2\"",

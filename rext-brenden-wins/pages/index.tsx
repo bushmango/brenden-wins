@@ -1,12 +1,12 @@
 import { NextPage } from 'next'
 import * as React from 'react'
+import { Game } from '../components/Game'
 import { Layout } from '../components/Layout'
 
 const IndexPage: NextPage = () => {
   return (
-    <Layout title='Curiosities @ StevieBushman'>
-      <h2>Bibelots and Baubles</h2>
-      <div>Little delights to make and observe</div>
+    <Layout title='Brenden always wins! by Brenden and StevieBushman'>
+      <Game />
     </Layout>
   )
 }

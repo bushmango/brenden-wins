@@ -14,26 +14,14 @@ export const Layout = (props: { children: React.ReactNode; title: string }) => {
 
       <div className={css.header}>
         <Link href='/'>
-          <a>Home</a>
+          <a>Game</a>
         </Link>{' '}
-        |{' '}
-        <Link href='/rebreather'>
-          <a>Rebreather</a>
-        </Link>{' '}
-        |{' '}
-        <Link href='/game-of-life'>
-          <a>Game of Life</a>
-        </Link>{' '}
-        |{' '}
-        <Link href='/game-of-life-classic'>
-          <a>Game of Life Classic</a>
-        </Link>
       </div>
       {props.children}
 
       <footer>
         {/* <hr /> */}
-        <span>&copy; 2020 Steve Bushman</span>
+        <span>&copy; 2020 Stevie Bushman</span>
       </footer>
     </div>
   )
