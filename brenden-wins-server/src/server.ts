@@ -34,6 +34,11 @@ server.listen(3001, () => {
   })
   io.on('connection', (socket) => {
     log('a user connected')
+
+    socket.on('chat', (msg) => {
+      log('msg', msg)
+      io.emit('chat', msg)
+    })
   })
   io.on('event', (data) => {
     log('a data event', data)
